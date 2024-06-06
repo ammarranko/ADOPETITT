@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Adoptitt</title>
+  <link rel="stylesheet" href="question7style.css">
+  <script src="question7.js"></script>
+
+  <style>
+    .pet-form {
+  font-family: Arial, sans-serif;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.menuOption {
+  font-weight: bold;
+}
+
+.form-input {
+  margin-right: 10px;
+}
+
+.form-buttons {
+  margin-top: 20px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #45a049;
+}
+
+input[type="submit"]:focus,
+input[type="reset"]:focus {
+  outline: none;
+}
+
+/* Additional styling can be added as per your preferences */
+
+  </style>
+
+
+
+</head>
+
+<body>
+  <header>
+    <%- include('partials/header') %>
+
+
+  </header>
+  <!--!https://www.w3schools.com/tags/tag_aside.asp#:~:text=Definition%20and%20Usage,a%20sidebar%20in%20a%20document.
+-->
+  <aside class="menu">
+    <nav>
+
+      <ul class="menu">
+        <li> <a href="/HomePage"> Home page</a></li>
+        <li> <a href="/findAnimal"> Find a dog or a cat</a></li>
+        <li><a href="/DogCare">Dog Care</a></li>
+        <li><a href="/catCare"> Cat Care</a></li>
+        <li><a href="/loginPage"> Have a pet to give away</a></li>
+        <li><a href="/contactUs"> Contact us</a></li>
+        <li><a href="/createAccount"> Create an account </a></li>
+        <li><a href="/logOut">LogOut</a></li>
+
+
+      </ul>
+    </nav>
+  </aside>
+  <!--https://www.w3schools.com/tags/tag_main.asp#:~:text=The%20tag%20specifies%20the,site%20logos%2C%20and%20search%20forms.
+-->
+<main class="content" id="content-text">
+
+  <form action="/submitFindAnimal" method="POST" id="petForm" class="pet-form">
+  
+    <div class="form-group">
+      <label class="menuOption">Type of Pet:</label>
+      <label><input class="form-input" type="radio" name="pet" value="Cat">Cat</label>
+      <label><input class="form-input" type="radio" name="pet" value="Dog">Dog</label>
+    </div>
+
+    <div class="form-group">
+      <label class="menuOption">Breed:</label>
+      <label><input class="form-input" type="radio" name="breed" value="Labrador Retriever">Labrador Retriever</label>
+      <label><input class="form-input" type="radio" name="breed" value="Golden Retriever">Golden Retriever</label>
+      <label><input class="form-input" type="radio" name="breed" value="Bulldog">Bulldog</label>
+      <label><input class="form-input" type="radio" name="breed" value="Poodle">Poodle</label>
+      <label><input class="form-input" type="radio" name="breed" value="Does not Matter">Does not Matter</label>
+    </div>
+
+    <div class="form-group">
+      <label class="menuOption">Age:</label>
+      <label><input class="form-input" type="radio" name="age" value="0-1 years old">0-1 years old</label>
+      <label><input class="form-input" type="radio" name="age" value="1-7 years old">1-7 years old</label>
+      <label><input class="form-input" type="radio" name="age" value="+7 years old">+7 years old</label>
+      <label><input class="form-input" type="radio" name="age" value="Does not matter">Does not matter</label>
+    </div>
+
+    <div class="form-group">
+      <label class="menuOption">Gender:</label>
+      <label><input class="form-input" type="radio" name="gender" value="Male">Male</label>
+      <label><input class="form-input" type="radio" name="gender" value="Female">Female</label>
+    </div>
+
+    <div class="form-group">
+      <label class="menuOption">Gets along with other cats?</label>
+      <label><input class="form-input" type="radio" name="getsAlongWithCats" value="gets along with cats">Yes</label>
+      <label><input class="form-input" type="radio" name="getsAlongWithCats" value="Does not get along with cats">No</label>
+    </div>
+
+    <div class="form-group">
+      <label class="menuOption">Gets along with other dogs?</label>
+      <label><input class="form-input" type="radio" name="getsAlongWithDogs" value="gets along with dogs">Yes</label>
+      <label><input class="form-input" type="radio" name="getsAlongWithDogs" value="Does not get along with dogs">No</label>
+    </div>
+
+    <div class="form-group">
+      <label class="menuOption">Suitable for a family with small children?</label>
+      <label><input class="form-input" type="radio" name="suitable" value="suitable">Yes</label>
+      <label><input class="form-input" type="radio" name="suitable" value="not suitable">No</label>
+    </div>
+
+    <div class="form-buttons">
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset">
+    </div>
+    
+  </form>
+
+</main>
+
+  <footer>
+    <%- include('partials/footer') %>
+  </footer>
+
+  <script>
+    document.getElementById("petForm").addEventListener("submit", function (event) {
+
+
+var groups = ["pet", "breed", "age", "gender", "getsAlongWithCats","getsAlongWithDogs","suitable"];
+var allGroupsChecked = true;
+      var errorMessage = "";
+
+      groups.forEach(function (group) {
+        var radioButtons = document.getElementsByName(group);
+        var radioButtonChecked = false;
+
+        for (var i = 0; i < radioButtons.length; i++) {
+          if (radioButtons[i].checked) {
+            radioButtonChecked = true;
+            break;
+          }
+        }
+
+        if (!radioButtonChecked) {
+          errorMessage = "Please select an option for all radio buttons ";
+          allGroupsChecked = false;
+        }
+      });
+
+
+      if (!allGroupsChecked) {
+        alert(errorMessage);
+        event.preventDefault(); 
+      }
+
+
+    });
+
+
+    
+  </script>
+
+
+
+
+
+</body>
+
+</html>

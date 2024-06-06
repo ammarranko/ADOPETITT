@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adoptitt</title>
+  <link rel="stylesheet" href="question7style.css">
+  <script src="question7.js"></script>
+</head>
+<body>
+  <header>
+    <%- include('partials/header') %>
+  </header>
+  
+  <aside class="menu">
+    <nav>
+      <ul class="menu">
+        <li><a href="/HomePage">Home Page</a></li>
+        <li><a href="/findAnimal">Find a Dog or a Cat</a></li>
+        <li><a href="/DogCare">Dog Care</a></li>
+        <li><a href="/catCare">Cat Care</a></li>
+        <li><a href="/loginPage">Have a Pet to Give Away</a></li>
+        <li><a href="/contactUs">Contact Us</a></li>
+        <li><a href="/createAccount">Create an Account</a></li>
+        <li><a href="/logOut">Log Out</a></li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <main class="content" id="content-text">
+    <h1>Contact Us</h1>
+    <section>
+      <h3>Customer Service</h3>
+      <p>Phone Number: 123-456-7891</p>
+      <p>Email Address: adoptitt@gmail.com</p>
+    </section>
+  </main>
+  
+  <footer>
+    <%- include('partials/footer') %>
+  </footer>
+</body>
+</html>

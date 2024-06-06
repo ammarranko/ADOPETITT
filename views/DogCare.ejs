@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Adoptitt</title>
+  <link rel="stylesheet" href="question7style.css">
+  <script src="question7.js"></script>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    h2 {
+        color: #555;
+    }
+
+    .intro, .conclusion {
+        text-align: justify;
+        margin-bottom: 20px;
+    }
+
+    .section {
+        margin-bottom: 30px;
+    }
+
+    .section h2 {
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+    }
+
+    .section p {
+        text-align: justify;
+    }
+</style>
+
+
+
+</head>
+
+<body>
+  <header>
+    <%- include('partials/header') %>
+
+
+
+  </header>
+  <!--!https://www.w3schools.com/tags/tag_aside.asp#:~:text=Definition%20and%20Usage,a%20sidebar%20in%20a%20document.
+-->
+
+  <aside class="menu">
+    <nav>
+
+      <ul class="menu">
+        
+        <li> <a href="/HomePage"> Home page</a></li>
+        <li> <a href="/findAnimal"> Find a dog or a cat</a></li>
+        <li><a href="/DogCare">Dog Care</a></li>
+        <li><a href="/catCare"> Cat Care</a></li>
+        <li><a href="/loginPage"> Have a pet to give away</a></li>
+        <li><a href="/contactUs"> Contact us</a></li>
+        <li><a href="/createAccount"> Create an account </a></li>
+        <li><a href="/logOut">LogOut</a></li>
+
+
+      </ul>
+    </nav>
+  </aside>
+  <!--https://www.w3schools.com/tags/tag_main.asp#:~:text=The%20tag%20specifies%20the,site%20logos%2C%20and%20search%20forms.
+-->
+
+  <!--https://chat.openai.com/share/3ae10a90-68b3-4600-ac60-24580590b683-->
+  <main class="content" id="content-text">
+    <h1>General Pet Care Guide: Caring for Your Dog</h1>
+    <p class="intro">Welcome to our comprehensive guide on caring for your beloved dog. Whether you're a first-time pet owner or looking to enhance your existing knowledge, this guide will provide you with essential tips and practices to ensure the health, happiness, and well-being of your canine companion.</p>
+
+    <div class="section">
+        <h2>Nutrition</h2>
+        <p>Choose high-quality dog food appropriate for your pet's age, size, and health requirements. Provide fresh water at all times. Avoid feeding your dog table scraps or foods that may be toxic to them, such as chocolate, onions, grapes, and raisins. Monitor your dog's weight and adjust their diet accordingly to maintain a healthy weight.</p>
+    </div>
+
+    <div class="section">
+        <h2>Exercise</h2>
+        <p>Engage in regular exercise routines suitable for your dog's breed and age. Take your dog for daily walks or runs to keep them physically active and mentally stimulated. Provide toys and interactive play sessions to prevent boredom and encourage exercise.</p>
+    </div>
+
+    <div class="section">
+        <h2>Veterinary Care</h2>
+        <p>Schedule regular check-ups with a veterinarian to monitor your dog's overall health and address any potential issues. Keep up-to-date with vaccinations, parasite control, and preventive medications. Address any signs of illness or discomfort promptly to prevent further complications.</p>
+    </div>
+
+    <div class="section">
+        <h2>Grooming</h2>
+        <p>Establish a regular grooming routine, including brushing your dog's coat, trimming nails, and cleaning ears and teeth. Bathe your dog as needed, using dog-friendly shampoos and conditioners. Pay attention to your dog's skin and coat condition, as changes may indicate underlying health issues.</p>
+    </div>
+
+    <div class="section">
+        <h2>Environmental Enrichment</h2>
+        <p>Provide a comfortable and safe living environment for your dog, including a cozy bed, appropriate shelter, and access to fresh air and sunlight. Create opportunities for mental stimulation through interactive toys, puzzle feeders, and training sessions. Consider environmental enrichment options such as agility courses or obedience training to fulfill your dog's natural instincts.</p>
+    </div>
+
+    <div class="section">
+        <h2>Socialization</h2>
+        <p>Socialize your dog from a young age to ensure they are comfortable around other animals, people, and various environments. Arrange playdates with other dogs or visits to dog-friendly parks to encourage positive social interactions. Use positive reinforcement techniques to reinforce good behavior and discourage unwanted behaviors.</p>
+    </div>
+
+    <div class="section">
+        <h2>Emergency Preparedness</h2>
+        <p>Keep a dog first aid kit readily available and familiarize yourself with basic first aid procedures. Have a plan in place for emergencies or natural disasters, including evacuation routes and arrangements for temporary shelter. Ensure your dog wears a collar with identification tags and is microchipped for easy identification if lost.</p>
+    </div>
+
+    <p class="conclusion">By following these general guidelines for dog care, you can provide your canine companion with a happy, healthy, and fulfilling life. Remember that every dog is unique, so tailor your care routine to meet their individual needs and preferences. With love, patience, and proper care, you'll enjoy a strong bond and companionship with your furry friend for years to come.</p>
+</main>
+  <footer>
+    <%- include('partials/footer') %>
+  </footer>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Improved font stack */
+            background-color: #fafafa; /* Lighter background color */
+            line-height: 1.6; /* Improved readability */
+        }
+        header {
+            background-color: #7E57C2; /* Purple background color */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+        }
+        header img {
+            width: 120px; /* Reduced logo size for better balance */
+            height: auto;
+        }
+        #currentDateTime {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #fff; /* Match text color with header background */
+            opacity: 0.7; /* Reduced opacity for subtlety */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Adoptitt logo">
+        <span id="currentDateTime"></span>
+        <script>
+            function getCurrentDate() {
+                var date = new Date();
+                const daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                let currentDate = `${daysOfTheWeek[date.getDay()]}, ${monthsOfYear[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}, ${date.getHours()}:${('0' + date.getMinutes()).slice(-2)}:${('0' + date.getSeconds()).slice(-2)}`;
+                return currentDate;
+            }
+
+            function updateTime() {
+                document.getElementById("currentDateTime").innerHTML = getCurrentDate();
+            }
+
+            setInterval(updateTime, 1000);
+        </script>
+    </header>
+</body>
+</html>

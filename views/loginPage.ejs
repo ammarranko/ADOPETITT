@@ -1,0 +1,105 @@
+!<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Adoptitt</title>
+  <link rel="stylesheet" href="question7style.css">
+  <script src="question7.js"></script>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    h2 {
+        text-align: center;
+    }
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+
+
+
+</head>
+<!--https://medium.com/@reidwilliamson2/using-partial-templates-for-header-footer-2d7901f2c906
+-->
+<body>
+  <header>
+    <%- include('partials/header') %>
+  </header>
+  <!--!https://www.w3schools.com/tags/tag_aside.asp#:~:text=Definition%20and%20Usage,a%20sidebar%20in%20a%20document.
+-->
+  <aside class="menu">
+    <nav>
+      <ul class="menu">
+        <li> <a href="/HomePage"> Home page</a></li>
+        <li> <a href="/findAnimal"> Find a dog or a cat</a></li>
+        <li><a href="/DogCare">Dog Care</a></li>
+        <li><a href="/catCare"> Cat Care</a></li>
+        <li><a href="/loginPage"> Have a pet to give away</a></li>
+        <li><a href="/contactUs"> Contact us</a></li>
+        <li><a href="/createAccount"> Create an account </a></li>
+        <li><a href="/logOut">LogOut</a></li>
+
+
+      </ul>
+    </nav>
+  </aside>
+  <!--https://www.w3schools.com/tags/tag_main.asp#:~:text=The%20tag%20specifies%20the,site%20logos%2C%20and%20search%20forms.
+-->
+  <main class="container" id="content-text">
+        <h2>Sign in</h2>
+        <form action="/loginPageValidator" method="GET" id="loginPageForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="Enter your username (letters and digits only)" required pattern="[A-Za-z0-9]+">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password (at least 4 characters with at least one letter and one digit)" required pattern="(?=.*[A-Za-z])(?=.*\d).{4,}">
+            <input type="submit" value="Log in ">
+        </form>
+ 
+  </main>
+
+
+
+
+
+
+  <footer>
+    
+    <%- include('partials/footer') %>
+    
+  </footer>
+
+ 
+
+
+
+
+</body>
+
+</html>
