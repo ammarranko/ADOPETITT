@@ -77,6 +77,7 @@ app.post("/loginPageValidator", (req, res) => {
     });
 });
 
+
 app.get("/givePet", (req, res) => {
     if (!req.session.username) {
         return res.redirect("/loginPage");
