@@ -1,3 +1,10 @@
+/* Container for centering forms */
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
 /* Additional form styles */
 .pet-form {
   margin-top: 30px;
