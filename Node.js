@@ -23,31 +23,31 @@ const path = require('path');
 const port = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
-    res.render("mainPage");
+    res.render("mainPage", { isLoggedIn: !!req.session.username });
 });
 
 app.get("/HomePage", (req, res) => {
-    res.render("HomePage");
+    res.render("HomePage", { isLoggedIn: !!req.session.username });
 });
 
 app.get("/contactUs", (req, res) => {
-    res.render("contactUs");
+    res.render("contactUs", { isLoggedIn: !!req.session.username });
 });
 
 app.get("/catCare", (req, res) => {
-    res.render("catCare");
+    res.render("catCare", { isLoggedIn: !!req.session.username });
 });
 
 app.get("/DogCare", (req, res) => {
-    res.render("DogCare");
+    res.render("DogCare", { isLoggedIn: !!req.session.username });
 });
 
 app.get("/findAnimal", (req, res) => {
-    res.render("findAnimal");
+    res.render("findAnimal", { isLoggedIn: !!req.session.username });
 });
 
 app.get("/loginPage", (req, res) => {
-    res.render("loginPage");
+    res.render("loginPage", { isLoggedIn: !!req.session.username });
 });
 
 app.post("/loginPageValidator", (req, res) => {
@@ -63,7 +63,7 @@ app.post("/loginPageValidator", (req, res) => {
         }
 
         if (data.includes(credentials)) {
-            req.session.username = username; // Store username in session
+            req.session.username = username;
             res.redirect("/givePet");
         } else {
             const errorMessage = "Make sure to enter the correct Login information or create an account if you do not have one.";
@@ -81,7 +81,7 @@ app.get("/givePet", (req, res) => {
     if (!req.session.username) {
         return res.redirect("/loginPage");
     }
-    res.render("givePet");
+    res.render("givePet", { isLoggedIn: !!req.session.username });
 });
 
 app.post("/giveAPet", (req, res) => {
@@ -90,7 +90,7 @@ app.post("/giveAPet", (req, res) => {
     }
 
     const { pet, breed, age, gender, getsAlongWithCats, getsAlongWithDogs, suitable, comment, givenName, familyName, email } = req.body;
-    const petInfo = `${req.session.username}:${pet}:${breed}:${age}:${gender}:${getsAlongWithCats}:${getsAlongWithDogs}:${suitable}:${comment}:${givenName}:${familyName}:${email}\n`;
+    const petInfo = `${req.session.username}:${pet}:${breed}:${age}:${gender}:${getsAlongCats}:${getsAlongWithDogs}:${suitable}:${comment}:${givenName}:${familyName}:${email}\n`;
 
     fs.appendFile('availablePetInformationFile.txt', petInfo, (err) => {
         if (err) {
@@ -102,10 +102,13 @@ app.post("/giveAPet", (req, res) => {
 });
 
 app.get("/createAccount", (req, res) => {
-    res.render("createAccount");
+    res.render("createAccount", { isLoggedIn: !!req.session.username });
 });
 
 app.get("/logout", (req, res) => {
+    if (!req.session.username) {
+        return res.redirect("/loginPage");
+    }
     req.session.destroy((err) => {
         if (err) {
             return res.status(500).send('Error logging out');
@@ -152,7 +155,7 @@ app.post('/getUserInfo', (req, res) => {
 });
 
 app.get("/privacy", (req, res) => {
-    res.render("privacy");
+    res.render("privacy", { isLoggedIn: !!req.session.username });
 });
 
 app.post('/submitFindAnimal', (req, res) => {

@@ -22,6 +22,18 @@
             width: 120px; /* Reduced logo size for better balance */
             height: auto;
         }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
         #currentDateTime {
             display: block;
             margin-top: 10px;
@@ -34,6 +46,19 @@
 <body>
     <header>
         <img src="logo.png" alt="Adoptitt logo">
+        <nav>
+            <a href="/HomePage">Home</a>
+            <a href="/contactUs">Contact Us</a>
+            <a href="/catCare">Cat Care</a>
+            <a href="/DogCare">Dog Care</a>
+            <a href="/findAnimal">Find Animal</a>
+            <% if (isLoggedIn) { %>
+                <a href="/logout">Logout</a>
+            <% } else { %>
+                <a href="/loginPage">Login</a>
+                <a href="/createAccount">Create Account</a>
+            <% } %>
+        </nav>
         <span id="currentDateTime"></span>
         <script>
             function getCurrentDate() {
