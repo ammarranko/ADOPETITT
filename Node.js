@@ -185,4 +185,45 @@ app.post('/submitFindAnimal', (req, res) => {
                     <h2 style="color: black;"> The Owner: ${animal[0]}</h2>
                         <h2 style="color: blue;"> Type of pet : ${animal[1]}</h2>
                         <p style="color: purple;">Breed: ${animal[2]}</p>
-                        <p style="color: purple;">Age: ${animal[3]}</
+                        <p style="color: purple;">Age: ${animal[3]}</p>
+                        <p style="color: purple;">Gender: ${animal[4]}</p>
+                        <p style="color: purple;">Gets Along With Cats: ${animal[5]}</p>
+                        <p style="color: purple;">Gets Along With Dogs: ${animal[6]}</p>
+                        <p style="color: purple;">Suitable: ${animal[7]}</p>
+                    </div>
+                `;
+            });
+            res.send(`
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Matching Animals</title>
+                </head>
+                <body>
+                    ${formattedAnimals.join('')}
+                </body>
+                </html>
+            `);
+        } else {
+            res.send(`
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>No Animals Found</title>
+                </head>
+                <body>
+                    <p style="color: red; font-weight: bold;">No animals found matching the criteria.</p>
+                </body>
+                </html>
+            `);
+        }
+    });
+});
+
+app.listen(port, () => {
+    console.log(`App listening on port ${port}`);
+});
