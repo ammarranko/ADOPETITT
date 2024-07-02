@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>Adoptitt</title>
@@ -41,50 +40,24 @@
     input[type="submit"]:hover {
         background-color: #45a049;
     }
-</style>
-
-
-
+  </style>
 </head>
-<!--https://medium.com/@reidwilliamson2/using-partial-templates-for-header-footer-2d7901f2c906
--->
 <body>
   <header>
     <%- include('partials/header') %>
   </header>
-  <!--!https://www.w3schools.com/tags/tag_aside.asp#:~:text=Definition%20and%20Usage,a%20sidebar%20in%20a%20document.
--->
-  
-  <!--https://www.w3schools.com/tags/tag_main.asp#:~:text=The%20tag%20specifies%20the,site%20logos%2C%20and%20search%20forms.
--->
   <main class="container" id="content-text">
-        <h2>Create an Account</h2>
-        <form action="/getUserInfo" method="GET" id="createAccountForm">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" value="Enter your username (letters and digits only)" required pattern="[A-Za-z0-9]+">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password (at least 4 characters with at least one letter and one digit)" required pattern="(?=.*[A-Za-z])(?=.*\d).{4,}">
-            <input type="submit" value="Create Account">
-        </form>
- 
+    <h2>Create an Account</h2>
+    <form action="/getUserInfo" method="POST" id="createAccountForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username (letters and digits only)" required pattern="[A-Za-z0-9]+">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password (at least 4 characters with at least one letter and one digit)" required pattern="(?=.*[A-Za-z])(?=.*\d).{4,}">
+      <input type="submit" value="Create Account">
+    </form>
   </main>
-
-
-
-
-
-
   <footer>
-    
     <%- include('partials/footer') %>
-    
   </footer>
-
- 
-
-
-
-
 </body>
-
 </html>
