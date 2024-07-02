@@ -108,6 +108,50 @@ input[type="submit"]:hover {
   transform: scale(1.05);
 }
 
+/* Radio button styling */
+.radio-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.radio-group input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #007BFF;
+  border-radius: 50%;
+  outline: none;
+  margin-right: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.radio-group input[type="radio"]:before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #007BFF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.radio-group input[type="radio"]:checked:before {
+  opacity: 1;
+}
+
+.radio-group label {
+  font-size: 1rem;
+  color: #333;
+}
+
 /* Animal description styling */
 #animaldescription {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
