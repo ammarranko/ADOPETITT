@@ -4,10 +4,13 @@ const bodyParser = require('body-parser');
 const ejs = require("ejs");
 const fs = require("fs");
 const session = require('express-session');
+const path = require('path');
+
+const port = process.env.PORT || 5000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
-app.use(express.static('views'));
+app.use(express.static(path.join(__dirname, 'views')));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,9 +21,6 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false } // Note: secure should be true in production with HTTPS
 }));
-
-const path = require('path');
-const port = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
     res.render("mainPage", { isLoggedIn: !!req.session.username });
@@ -90,7 +90,7 @@ app.post("/giveAPet", (req, res) => {
     }
 
     const { pet, breed, age, gender, getsAlongWithCats, getsAlongWithDogs, suitable, comment, givenName, familyName, email } = req.body;
-    const petInfo = `${req.session.username}:${pet}:${breed}:${age}:${gender}:${getsAlongCats}:${getsAlongWithDogs}:${suitable}:${comment}:${givenName}:${familyName}:${email}\n`;
+    const petInfo = `${req.session.username}:${pet}:${breed}:${age}:${gender}:${getsAlongWithCats}:${getsAlongWithDogs}:${suitable}:${comment}:${givenName}:${familyName}:${email}\n`;
 
     fs.appendFile('availablePetInformationFile.txt', petInfo, (err) => {
         if (err) {
@@ -103,23 +103,6 @@ app.post("/giveAPet", (req, res) => {
 
 app.get("/createAccount", (req, res) => {
     res.render("createAccount", { isLoggedIn: !!req.session.username });
-});
-
-app.get("/logout", (req, res) => {
-    if (!req.session.username) {
-        return res.redirect("/loginPage");
-    }
-    req.session.destroy((err) => {
-        if (err) {
-            return res.status(500).send('Error logging out');
-        }
-        res.send(`
-            <script>
-                alert("Logged Out Successfully");
-                window.location.href = "/HomePage";
-            </script>
-        `);
-    });
 });
 
 app.post('/getUserInfo', (req, res) => {
@@ -154,6 +137,23 @@ app.post('/getUserInfo', (req, res) => {
     });
 });
 
+app.get("/logout", (req, res) => {
+    if (!req.session.username) {
+        return res.redirect("/loginPage");
+    }
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).send('Error logging out');
+        }
+        res.send(`
+            <script>
+                alert("Logged Out Successfully");
+                window.location.href = "/HomePage";
+            </script>
+        `);
+    });
+});
+
 app.get("/privacy", (req, res) => {
     res.render("privacy", { isLoggedIn: !!req.session.username });
 });
@@ -185,45 +185,4 @@ app.post('/submitFindAnimal', (req, res) => {
                     <h2 style="color: black;"> The Owner: ${animal[0]}</h2>
                         <h2 style="color: blue;"> Type of pet : ${animal[1]}</h2>
                         <p style="color: purple;">Breed: ${animal[2]}</p>
-                        <p style="color: purple;">Age: ${animal[3]}</p>
-                        <p style="color: purple;">Gender: ${animal[4]}</p>
-                        <p style="color: purple;">Gets Along With Cats: ${animal[5]}</p>
-                        <p style="color: purple;">Gets Along With Dogs: ${animal[6]}</p>
-                        <p style="color: purple;">Suitable: ${animal[7]}</p>
-                    </div>
-                `;
-            });
-            res.send(`
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Matching Animals</title>
-                </head>
-                <body>
-                    ${formattedAnimals.join('')}
-                </body>
-                </html>
-            `);
-        } else {
-            res.send(`
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>No Animals Found</title>
-                </head>
-                <body>
-                    <p style="color: red; font-weight: bold;">No animals found matching the criteria.</p>
-                </body>
-                </html>
-            `);
-        }
-    });
-});
-
-app.listen(port, () => {
-    console.log(`App listening on port ${port}`);
-});
+                        <p style="color: purple;">Age: ${animal[3]}</
