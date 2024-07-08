@@ -13,16 +13,16 @@ body {
   padding: 30px;
 }
 
-/* Shared form styles */
-.form {
+/* Additional form styles */
+.pet-form {
   margin-top: 30px;
 }
 
-.form .form-group {
+.pet-form .form-group {
   margin-bottom: 20px;
 }
 
-.form .menuOption {
+.pet-form .menuOption {
   font-size: 1rem;
   color: #333;
   font-weight: bold;
@@ -30,12 +30,12 @@ body {
   display: block;
 }
 
-.form label {
+.pet-form label {
   display: block;
   margin-bottom: 10px;
 }
 
-.form .form-input {
+.pet-form .form-input {
   width: calc(100% - 24px);
   padding: 10px;
   border: 2px solid #ced4da;
@@ -46,12 +46,12 @@ body {
   margin-bottom: 10px;
 }
 
-.form .form-input:focus {
+.pet-form .form-input:focus {
   outline: none;
   border-color: #007BFF;
 }
 
-.form .text-input {
+.pet-form .text-input {
   width: calc(100% - 24px);
   padding: 10px;
   border: 2px solid #ced4da;
@@ -63,12 +63,12 @@ body {
   resize: vertical;
 }
 
-.form .form-buttons {
+.pet-form .form-buttons {
   margin-top: 20px;
 }
 
-.form input[type="submit"],
-.form input[type="reset"] {
+.pet-form input[type="submit"],
+.pet-form input[type="reset"] {
   width: 48%;
   padding: 10px;
   border: none;
@@ -80,18 +80,18 @@ body {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.form input[type="submit"]:hover,
-.form input[type="reset"]:hover {
+.pet-form input[type="submit"]:hover,
+.pet-form input[type="reset"]:hover {
   background-color: #0056b3;
   transform: scale(1.05);
 }
 
-.form .form-group label {
+.pet-form .form-group label {
   display: flex;
   align-items: center;
 }
 
-.form .form-group label input[type="radio"] {
+.pet-form .form-group label input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -105,7 +105,7 @@ body {
   position: relative;
 }
 
-.form .form-group label input[type="radio"]:before {
+.pet-form .form-group label input[type="radio"]:before {
   content: '';
   width: 12px;
   height: 12px;
@@ -119,16 +119,80 @@ body {
   transition: opacity 0.2s ease;
 }
 
-.form .form-group label input[type="radio"]:checked:before {
+.pet-form .form-group label input[type="radio"]:checked:before {
   opacity: 1;
 }
 
-.form .form-group label {
+.pet-form .form-group label {
   font-size: 1rem;
   color: #333;
 }
 
-/* Centered content text */
+/* Style for second form */
+#myForm {
+  margin-top: 30px;
+}
+
+#myForm label.menuOption {
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+#myForm label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#myForm .form-input {
+  width: calc(100% - 24px);
+  padding: 10px;
+  border: 2px solid #ced4da;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #495057;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+#myForm .form-input:focus {
+  outline: none;
+  border-color: #007BFF;
+}
+
+#myForm .text-input {
+  width: calc(100% - 24px);
+  padding: 10px;
+  border: 2px solid #ced4da;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #495057;
+  background-color: #fff;
+  margin-bottom: 10px;
+  resize: vertical;
+}
+
+#myForm input[type="submit"],
+#myForm input[type="reset"] {
+  width: 48%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#myForm input[type="submit"]:hover,
+#myForm input[type="reset"]:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
 #content-text {
   text-align: center;
   padding: 20px;
@@ -165,14 +229,18 @@ footer a:hover {
     padding: 15px;
   }
 
-  .form input[type="submit"],
-  .form input[type="reset"] {
+  .pet-form input[type="submit"],
+  .pet-form input[type="reset"],
+  #myForm input[type="submit"],
+  #myForm input[type="reset"] {
     width: 100%;
     margin-bottom: 10px;
   }
 
-  .form .form-input,
-  .form .text-input {
+  .pet-form .form-input,
+  .pet-form .text-input,
+  #myForm .form-input,
+  #myForm .text-input {
     width: 100%;
   }
 }
@@ -183,14 +251,18 @@ footer a:hover {
     padding: 20px;
   }
 
-  .form input[type="submit"],
-  .form input[type="reset"] {
+  .pet-form input[type="submit"],
+  .pet-form input[type="reset"],
+  #myForm input[type="submit"],
+  #myForm input[type="reset"] {
     width: 100%;
     margin-bottom: 10px;
   }
 
-  .form .form-input,
-  .form .text-input {
+  .pet-form .form-input,
+  .pet-form .text-input,
+  #myForm .form-input,
+  #myForm .text-input {
     width: 100%;
   }
 }
@@ -201,13 +273,17 @@ footer a:hover {
     padding: 25px;
   }
 
-  .form input[type="submit"],
-  .form input[type="reset"] {
+  .pet-form input[type="submit"],
+  .pet-form input[type="reset"],
+  #myForm input[type="submit"],
+  #myForm input[type="reset"] {
     width: 48%;
   }
 
-  .form .form-input,
-  .form .text-input {
+  .pet-form .form-input,
+  .pet-form .text-input,
+  #myForm .form-input,
+  #myForm .text-input {
     width: calc(100% - 24px);
   }
 }
@@ -218,13 +294,17 @@ footer a:hover {
     padding: 30px;
   }
 
-  .form input[type="submit"],
-  .form input[type="reset"] {
+  .pet-form input[type="submit"],
+  .pet-form input[type="reset"],
+  #myForm input[type="submit"],
+  #myForm input[type="reset"] {
     width: 48%;
   }
 
-  .form .form-input,
-  .form .text-input {
+  .pet-form .form-input,
+  .pet-form .text-input,
+  #myForm .form-input,
+  #myForm .text-input {
     width: calc(100% - 24px);
   }
 }

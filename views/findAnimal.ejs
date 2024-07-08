@@ -1,183 +1,255 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Adoptitt</title>
-  <link rel="stylesheet" href="question7style.css">
-  <script src="question7.js"></script>
-
-  <style>
-    .pet-form {
+/* Global styles */
+body {
   font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding-bottom: 60px; /* Ensure space for the footer */
+  margin: 0;
 }
 
-.form-group {
+/* Container for centering forms */
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* Additional form styles */
+.pet-form, #myForm {
+  margin-top: 30px;
+}
+
+.pet-form .form-group, #myForm .form-group {
   margin-bottom: 20px;
 }
 
-.menuOption {
+.pet-form .menuOption, #myForm .menuOption {
+  font-size: 1rem;
+  color: #333;
   font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
 }
 
-.form-input {
-  margin-right: 10px;
+.pet-form label, #myForm label {
+  display: block;
+  margin-bottom: 10px;
 }
 
-.form-buttons {
+.pet-form .form-input, #myForm .form-input {
+  width: calc(100% - 24px);
+  padding: 10px;
+  border: 2px solid #ced4da;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #495057;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.pet-form .form-input:focus, #myForm .form-input:focus {
+  outline: none;
+  border-color: #007BFF;
+}
+
+.pet-form .text-input, #myForm .text-input {
+  width: calc(100% - 24px);
+  padding: 10px;
+  border: 2px solid #ced4da;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #495057;
+  background-color: #fff;
+  margin-bottom: 10px;
+  resize: vertical;
+}
+
+.pet-form .form-buttons, #myForm .form-buttons {
   margin-top: 20px;
 }
 
-input[type="submit"],
-input[type="reset"] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
+.pet-form input[type="submit"],
+.pet-form input[type="reset"],
+#myForm input[type="submit"],
+#myForm input[type="reset"] {
+  width: 48%;
+  padding: 10px;
   border: none;
   border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-input[type="submit"]:hover,
-input[type="reset"]:hover {
-  background-color: #45a049;
+.pet-form input[type="submit"]:hover,
+.pet-form input[type="reset"]:hover,
+#myForm input[type="submit"]:hover,
+#myForm input[type="reset"]:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
-input[type="submit"]:focus,
-input[type="reset"]:focus {
+.pet-form .form-group label,
+#myForm .form-group label {
+  display: flex;
+  align-items: center;
+}
+
+.pet-form .form-group label input[type="radio"],
+#myForm .form-group label input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #007BFF;
+  border-radius: 50%;
   outline: none;
+  margin-right: 10px;
+  cursor: pointer;
+  position: relative;
 }
 
-/* Additional styling can be added as per your preferences */
+.pet-form .form-group label input[type="radio"]:before,
+#myForm .form-group label input[type="radio"]:before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #007BFF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
 
-  </style>
+.pet-form .form-group label input[type="radio"]:checked:before,
+#myForm .form-group label input[type="radio"]:checked:before {
+  opacity: 1;
+}
 
+.pet-form .form-group label,
+#myForm .form-group label {
+  font-size: 1rem;
+  color: #333;
+}
 
+/* Content text styles */
+#content-text {
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-</head>
+/* Footer styles */
+footer {
+  padding: 20px;
+  background-color: #83d2f7;
+  color: white;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
 
-<body>
-  <header>
-    <%- include('partials/header') %>
+footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
 
+footer a:hover {
+  text-decoration: underline;
+}
 
-  </header>
-  <!--!https://www.w3schools.com/tags/tag_aside.asp#:~:text=Definition%20and%20Usage,a%20sidebar%20in%20a%20document.
--->
+/* Media Queries for Responsive Design */
 
-  <!--https://www.w3schools.com/tags/tag_main.asp#:~:text=The%20tag%20specifies%20the,site%20logos%2C%20and%20search%20forms.
--->
-<main class="content" id="content-text">
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .form-container {
+    padding: 15px;
+  }
 
-  <div class="form-container">
+  .pet-form input[type="submit"],
+  .pet-form input[type="reset"],
+  #myForm input[type="submit"],
+  #myForm input[type="reset"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 
+  .pet-form .form-input,
+  .pet-form .text-input,
+  #myForm .form-input,
+  #myForm .text-input {
+    width: 100%;
+  }
+}
 
-  <form action="/submitFindAnimal" method="POST" id="petForm" class="pet-form">
-  
-    <div class="form-group">
-      <label class="menuOption">Type of Pet:</label>
-      <label><input class="form-input" type="radio" name="pet" value="Cat">Cat</label>
-      <label><input class="form-input" type="radio" name="pet" value="Dog">Dog</label>
-    </div>
+/* Small devices (tablets, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .form-container {
+    padding: 20px;
+  }
 
-    <div class="form-group">
-      <label class="menuOption">Breed:</label>
-      <label><input class="form-input" type="radio" name="breed" value="Labrador Retriever">Labrador Retriever</label>
-      <label><input class="form-input" type="radio" name="breed" value="Golden Retriever">Golden Retriever</label>
-      <label><input class="form-input" type="radio" name="breed" value="Bulldog">Bulldog</label>
-      <label><input class="form-input" type="radio" name="breed" value="Poodle">Poodle</label>
-      <label><input class="form-input" type="radio" name="breed" value="Does not Matter">Does not Matter</label>
-    </div>
+  .pet-form input[type="submit"],
+  .pet-form input[type="reset"],
+  #myForm input[type="submit"],
+  #myForm input[type="reset"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 
-    <div class="form-group">
-      <label class="menuOption">Age:</label>
-      <label><input class="form-input" type="radio" name="age" value="0-1 years old">0-1 years old</label>
-      <label><input class="form-input" type="radio" name="age" value="1-7 years old">1-7 years old</label>
-      <label><input class="form-input" type="radio" name="age" value="+7 years old">+7 years old</label>
-      <label><input class="form-input" type="radio" name="age" value="Does not matter">Does not matter</label>
-    </div>
+  .pet-form .form-input,
+  .pet-form .text-input,
+  #myForm .form-input,
+  #myForm .text-input {
+    width: 100%;
+  }
+}
 
-    <div class="form-group">
-      <label class="menuOption">Gender:</label>
-      <label><input class="form-input" type="radio" name="gender" value="Male">Male</label>
-      <label><input class="form-input" type="radio" name="gender" value="Female">Female</label>
-    </div>
+/* Medium devices (desktops, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .form-container {
+    padding: 25px;
+  }
 
-    <div class="form-group">
-      <label class="menuOption">Gets along with other cats?</label>
-      <label><input class="form-input" type="radio" name="getsAlongWithCats" value="gets along with cats">Yes</label>
-      <label><input class="form-input" type="radio" name="getsAlongWithCats" value="Does not get along with cats">No</label>
-    </div>
+  .pet-form input[type="submit"],
+  .pet-form input[type="reset"],
+  #myForm input[type="submit"],
+  #myForm input[type="reset"] {
+    width: 48%;
+  }
 
-    <div class="form-group">
-      <label class="menuOption">Gets along with other dogs?</label>
-      <label><input class="form-input" type="radio" name="getsAlongWithDogs" value="gets along with dogs">Yes</label>
-      <label><input class="form-input" type="radio" name="getsAlongWithDogs" value="Does not get along with dogs">No</label>
-    </div>
+  .pet-form .form-input,
+  .pet-form .text-input,
+  #myForm .form-input,
+  #myForm .text-input {
+    width: calc(100% - 24px);
+  }
+}
 
-    <div class="form-group">
-      <label class="menuOption">Suitable for a family with small children?</label>
-      <label><input class="form-input" type="radio" name="suitable" value="suitable">Yes</label>
-      <label><input class="form-input" type="radio" name="suitable" value="not suitable">No</label>
-    </div>
+/* Large devices (large desktops, 992px and up) */
+@media (min-width: 992px) {
+  .form-container {
+    padding: 30px;
+  }
 
-    <div class="form-buttons">
-      <input type="submit" value="Submit">
-      <input type="reset" value="Reset">
-    </div>
-    
-  </form>
-  </div>
-  
+  .pet-form input[type="submit"],
+  .pet-form input[type="reset"],
+  #myForm input[type="submit"],
+  #myForm input[type="reset"] {
+    width: 48%;
+  }
 
-</main>
-
-  <footer>
-    <%- include('partials/footer') %>
-  </footer>
-
-  <script>
-    document.getElementById("petForm").addEventListener("submit", function (event) {
-
-
-var groups = ["pet", "breed", "age", "gender", "getsAlongWithCats","getsAlongWithDogs","suitable"];
-var allGroupsChecked = true;
-      var errorMessage = "";
-
-      groups.forEach(function (group) {
-        var radioButtons = document.getElementsByName(group);
-        var radioButtonChecked = false;
-
-        for (var i = 0; i < radioButtons.length; i++) {
-          if (radioButtons[i].checked) {
-            radioButtonChecked = true;
-            break;
-          }
-        }
-
-        if (!radioButtonChecked) {
-          errorMessage = "Please select an option for all radio buttons ";
-          allGroupsChecked = false;
-        }
-      });
-
-
-      if (!allGroupsChecked) {
-        alert(errorMessage);
-        event.preventDefault(); 
-      }
-
-
-    });
-
-
-    
-  </script>
-
-
-
-
-
-</body>
-
-</html>
+  .pet-form .form-input,
+  .pet-form .text-input,
+  #myForm .form-input,
+  #myForm .text-input {
+    width: calc(100% - 24px);
+  }
+}
