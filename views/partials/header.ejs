@@ -8,15 +8,12 @@
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fafafa;
             line-height: 1.6;
         }
         header {
-            background-color: #7E57C2;
-            color: #fff;
-            padding: 20px;
+            border-bottom: 2px solid #ccc;
+            padding: 10px 0;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         header img {
             width: 120px;
@@ -26,21 +23,20 @@
             margin-top: 10px;
         }
         nav a {
-            color: #fff;
+            color: #333;
             text-decoration: none;
             margin: 0 15px;
             font-size: 16px;
-            display: inline-block;
+            transition: color 0.3s;
         }
         nav a:hover {
-            text-decoration: underline;
+            color: #7E57C2;
         }
         #currentDateTime {
             display: block;
             margin-top: 10px;
             font-size: 14px;
-            color: #fff;
-            opacity: 0.7;
+            color: #555;
         }
         @media (max-width: 768px) {
             nav a {
