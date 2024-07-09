@@ -11,13 +11,16 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #fafafa;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure full viewport height */
         }
         footer {
             text-align: center; /* Centered text */
             padding: 20px; /* Padding on all sides */
-            position: absolute;
-            bottom: 0;
+            margin-top: auto; /* Push footer to the bottom */
             width: 100%;
+            background-color: #f0f0f0; /* Example background color */
         }
         footer p {
             margin: 0;
@@ -45,9 +48,13 @@
 </head>
 <body>
 
+    <div class="content">
+        <!-- Your page content here -->
+    </div>
+
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 AdoptItt. All rights reserved.<br> <a href="/privacy">Privacy Policy</a></p>
+            <p>&copy; 2024 AdoptItt. All rights reserved. <br><a href="/privacy">Privacy Policy</a></p>
         </div>
     </footer>
 
