@@ -7,19 +7,19 @@
     <style>
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Improved font stack */
-            background-color: #fafafa; /* Lighter background color */
-            line-height: 1.6; /* Improved readability */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            line-height: 1.6;
         }
         header {
-            background-color: #7E57C2; /* Purple background color */
+            background-color: #7E57C2;
             color: #fff;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         header img {
-            width: 120px; /* Reduced logo size for better balance */
+            width: 120px;
             height: auto;
         }
         nav {
@@ -30,6 +30,7 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 16px;
+            display: inline-block;
         }
         nav a:hover {
             text-decoration: underline;
@@ -38,8 +39,14 @@
             display: block;
             margin-top: 10px;
             font-size: 14px;
-            color: #fff; /* Match text color with header background */
-            opacity: 0.7; /* Reduced opacity for subtlety */
+            color: #fff;
+            opacity: 0.7;
+        }
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
