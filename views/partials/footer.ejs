@@ -13,38 +13,39 @@
             line-height: 1.6;
         }
         footer {
-            background-color: #4A148C;
-            color: #fff;
-            text-align: center;
-            padding: 30px 20px;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #333; /* Dark background color */
+            color: #fff; /* White text color */
+            text-align: center; /* Centered text */
+            padding: 40px 20px; /* Increased padding */
             position: relative;
             bottom: 0;
             width: 100%;
-            font-size: 16px;
+            border-top: 5px solid #7E57C2; /* Purple top border for contrast */
         }
         footer p {
             margin: 0;
-            padding: 5px 0;
+            font-size: 18px; /* Larger font size */
         }
         footer a {
-            color: #BBDEFB;
+            color: #7E57C2; /* Purple link color */
             text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s ease;
+            font-weight: bold; /* Bold links */
+            transition: color 0.3s; /* Smooth color transition */
         }
         footer a:hover {
-            color: #E1BEE7;
-            text-decoration: underline;
+            color: #fff; /* Hover effect to white */
         }
         @media (max-width: 768px) {
             footer {
-                padding: 20px 10px;
+                padding: 20px 10px; /* Reduced padding on smaller screens */
+            }
+            footer p {
+                font-size: 16px; /* Smaller font size on smaller screens */
             }
             footer a {
-                display: block;
-                margin: 10px 0;
-                font-size: 14px;
+                display: block; /* Links stack vertically on smaller screens */
+                margin: 10px 0; /* Spacing between links */
+                font-size: 16px; /* Smaller font size for links */
             }
         }
     </style>
