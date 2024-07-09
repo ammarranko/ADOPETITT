@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="question7style.css">
+    <link rel="stylesheet" href="question7style.css"> <!-- Your custom styles -->
     <title>Footer</title>
     <style>
         body {
@@ -17,7 +17,7 @@
             color: #fff; /* White text color */
             text-align: center; /* Centered text */
             padding: 40px 20px; /* Increased padding */
-            position: relative;
+            position: absolute;
             bottom: 0;
             width: 100%;
             border-top: 5px solid #7E57C2; /* Purple top border for contrast */
@@ -53,7 +53,10 @@
 <body>
 
     <footer>
-        <p><a href="/privacy">Privacy Policy</a></p>
+        <div class="footer-content">
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+            <p><a href="/privacy">Privacy Policy</a></p>
+        </div>
     </footer>
 
 </body>
