@@ -21,6 +21,9 @@
         }
         nav {
             margin-top: 10px;
+            background-color: #f0f0f0; /* Light grey background */
+            padding: 10px 0; /* Padding for menu options */
+            border-radius: 8px; /* Rounded corners */
         }
         nav a {
             color: #333;
@@ -28,9 +31,14 @@
             margin: 0 15px;
             font-size: 16px;
             transition: color 0.3s;
+            padding: 8px 16px; /* Padding around text */
+            background-color: #fff; /* White background */
+            border-radius: 4px; /* Rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
         }
         nav a:hover {
             color: #7E57C2;
+            background-color: #f0f0f0; /* Light grey background on hover */
         }
         #currentDateTime {
             display: block;
@@ -39,9 +47,13 @@
             color: #555;
         }
         @media (max-width: 768px) {
-            nav a {
+            nav {
                 display: block;
                 margin: 10px 0;
+            }
+            nav a {
+                display: block;
+                margin: 10px auto;
             }
         }
     </style>
